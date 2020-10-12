@@ -53,6 +53,7 @@ func _unhandled_input(event):
 				OS.get_window_size().y - 100))
 
 func spawn_new_ball(pos):
+	
 	var ball = _BallScene.instance()
 	add_child(ball)
 	ball.set_owner(self)

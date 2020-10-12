@@ -1,7 +1,7 @@
 extends Area2D
 class_name Ball, "res://assets/ball.png"
 
-var speed := Vector2(0, 460)
+var speed := Vector2(100, 750)
 var motion := Vector2.ZERO
 var _colliding := Vector2.ZERO # x=horizontal, y=vertical, 1=Colliding, 0=Not colliding
 var _default_color : Color
