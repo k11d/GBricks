@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/bricks/Brick.gd" type="Script" id=1]
+[ext_resource path="res://BrickLabelFont.res" type="DynamicFont" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fade Out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "destroy"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 40, 20 )
+
+[node name="Brick" type="Area2D"]
+monitoring = false
+collision_layer = 2
+collision_mask = 2147483649
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+hitpoints = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Fade Out" = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.164706, 0.752941, 0.160784, 1 )
+polygon = PoolVector2Array( -40, -20, 40, -20, 40, 20, -40, 20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -18.9802
+margin_top = -25.998
+margin_right = 21.0198
+margin_bottom = 28.002
+custom_fonts/font = ExtResource( 2 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
