@@ -14,7 +14,7 @@ offset = Vector2( -0.181183, -19.6196 )
 polygon = PoolVector2Array( -116, 12, 116, 12, 116, 24, -116, 24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 2.37842 )
+position = Vector2( 0, 4.37842 )
 shape = SubResource( 1 )
 
 [node name="Hitpoint" type="Polygon2D" parent="."]
