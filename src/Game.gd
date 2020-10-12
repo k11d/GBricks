@@ -1,5 +1,16 @@
 extends Node2D
 
+const _colors :=[
+	Color.white,
+	Color.red,
+	Color.blue,
+	Color.green,
+	Color.aliceblue,
+	Color.darkorange,
+	Color.pink,
+	Color.purple
+]
+
 onready var _BallScene := preload("res://src/entities/balls/Ball.tscn")
 onready var _BrickScene := preload("res://src/bricks/Brick.tscn")
 
@@ -18,7 +29,8 @@ func _ready():
 	bricks = $Bricks
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
+	for brick in bricks.get_children():
+		randomize_brick_color(brick)
 	
 
 func _set_mouse_mode(mode):
@@ -53,7 +65,6 @@ func _unhandled_input(event):
 				OS.get_window_size().y - 100))
 
 func spawn_new_ball(pos):
-	
 	var ball = _BallScene.instance()
 	add_child(ball)
 	ball.set_owner(self)
@@ -64,3 +75,8 @@ func spawn_new_brick(pos):
 	bricks.add_child(b)
 	b.set_owner(bricks)
 	b.position = pos
+	b.set_color(_colors[randi() % len(_colors) - 1])
+
+func randomize_brick_color(brick):
+	brick.set_color(_colors[randi() % len(_colors) - 1])
+	

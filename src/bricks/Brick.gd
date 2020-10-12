@@ -5,7 +5,7 @@ var polygon : Polygon2D
 var hp_label : Label
 var animation_player : AnimationPlayer
 
-export(Color) var color setget set_colors
+export(Color) var color setget set_color
 export(int) var hitpoints = -1 setget set_hitpoints
 
 
@@ -19,7 +19,7 @@ func polygon_points():
 	if polygon:
 		return polygon.polygon
 
-func set_colors(col):
+func set_color(col):
 	color = col
 	if color and polygon:
 		polygon.color = color

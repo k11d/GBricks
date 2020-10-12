@@ -19,6 +19,7 @@ func _physics_process(delta):
 	global_position += motion
 	motion = Vector2.ZERO
 
+
 func bounce_horizontal(y_off=0.0):
 	speed.x = -speed.x
 	speed.y += y_off * 2
